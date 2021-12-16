@@ -35,19 +35,19 @@ class ListViewItems extends StatelessWidget {
                           items[index].creationDate! * 1000)),
                   style: TextStyle(fontSize: 14, color: Colors.grey),
                 ),
-                leading: Padding(
-                  padding: const EdgeInsets.only(top: 4.0),
-                  child: Container(
-                    width: Get.width * .15,
-                    height: Get.width * .15,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(items[index].owner.profileImage!),
-                      ),
-                    ),
-                  ),
-                ),
+                // leading: Padding(
+                //   padding: const EdgeInsets.only(top: 4.0),
+                //   child: Container(
+                //     width: Get.width * .15,
+                //     height: Get.width * .15,
+                //     decoration: BoxDecoration(
+                //       shape: BoxShape.circle,
+                //       image: DecorationImage(
+                //         image: NetworkImage(items[index].owner.profileImage!),
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ));
             }),
       ),
