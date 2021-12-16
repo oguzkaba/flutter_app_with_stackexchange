@@ -13,9 +13,17 @@ class QuestionDetailsView extends GetView<QuestionDetailsController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          'QuestionDetailsView is working',
-          style: TextStyle(fontSize: 20),
+        child: Column(
+          children: [
+            Text(
+              Get.arguments.toString(),
+              style: TextStyle(fontSize: 20),
+            ),
+            ElevatedButton(
+                onPressed: () => controller.launchURLApp(
+                    "https://onursahin.net"),
+                child: Text('Aç'))
+          ],
         ),
       ),
     );

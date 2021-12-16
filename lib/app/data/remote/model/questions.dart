@@ -10,13 +10,13 @@ String questionsModelToJson(QuestionsModel data) => json.encode(data.toJson());
 
 class QuestionsModel {
     QuestionsModel({
-        required this.items,
+        this.items,
         this.hasMore,
         this.quotaMax,
         this.quotaRemaining,
     });
 
-    final List<Item> items;
+    final List<Item>? items;
     final bool? hasMore;
     final int? quotaMax;
     final int? quotaRemaining;
@@ -29,7 +29,7 @@ class QuestionsModel {
     );
 
     Map<String, dynamic> toJson() => {
-        "items": List<dynamic>.from(items.map((x) => x.toJson())),
+        "items": List<dynamic>.from(items??[].map((x) => x.toJson())),
         "has_more": hasMore,
         "quota_max": quotaMax,
         "quota_remaining": quotaRemaining,

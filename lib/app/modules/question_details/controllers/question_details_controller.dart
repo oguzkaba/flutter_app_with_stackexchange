@@ -1,9 +1,7 @@
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class QuestionDetailsController extends GetxController {
-  //TODO: Implement QuestionDetailsController
-
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -14,7 +12,11 @@ class QuestionDetailsController extends GetxController {
     super.onReady();
   }
 
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+  launchURLApp(String questionUrl) async {
+    if (await canLaunch(questionUrl)) {
+      await launch(questionUrl, forceSafariVC: true, forceWebView: true);
+    } else {
+      throw 'Could not launch $questionUrl';
+    }
+  }
 }
