@@ -9,7 +9,6 @@ class LocalServices {
   static final table = "questions";
   static final columnId = 'id';
   static final columnTitle = 'title';
-  static final columnCreateDate = 'createdate';
 
   LocalServices.createInstance();
   static final LocalServices instance = LocalServices.createInstance();
@@ -30,8 +29,7 @@ class LocalServices {
     await db.execute('''
   CREATE TABLE $table (
     $columnId INTEGER PRIMARY KEY AUTOINCREMENT,
-    $columnTitle TEXT NOT NULL,
-    $columnCreateDate TEXT NOT NULL
+    $columnTitle TEXT NOT NULL
   )
   ''');
   }

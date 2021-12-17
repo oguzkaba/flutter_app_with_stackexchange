@@ -20,9 +20,9 @@ class LocalDBController extends GetxController {
       await LocalServices.instance.queryAllRows().then((value) {
         for (var element in value) {
           questionsData.add(LocalQuestionsModel(
-              id: element['id'],
-              columnTitle: element['columnTitle'],
-              columnCreateDate: element['columnCreateDate']));
+            id: element['id'],
+            columnTitle: element['columnTitle']
+          ));
         }
       });
     } finally {
@@ -35,10 +35,7 @@ class LocalDBController extends GetxController {
     try {
       isLoading(true);
       await LocalServices.instance.insert(LocalQuestionsModel(
-          id: ApiController().listQuestions.items!.first.questionId,
-          columnTitle: ApiController().listQuestions.items!.first.title!,
-          columnCreateDate:
-              ApiController().listQuestions.items!.first.creationDate!));
+          columnTitle: ApiController().listQuestions.items!.first.title));
     } finally {
       isLoading(false);
     }

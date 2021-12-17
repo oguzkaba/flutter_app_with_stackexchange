@@ -9,10 +9,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   get:
   sqflite:
-  connectivity_plus:
   http:
-  url_launcher:
   timeago:
+  flutter_markdown:
+  html_unescape:
+  lazy_load_scrollview:
+  connectivity_plus:
 
   flutter: 
     sdk: flutter

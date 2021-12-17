@@ -27,12 +27,22 @@ class HomeView extends GetView<HomeController> {
         title: Text('Questions Page'),
         centerTitle: true,
       ),
-      body: Obx(
-        () => netContoller.isOnline.value == false
+      body: Obx(///buraya bak  <----------------------------------
+        () => netContoller.isOnline == false
             ? localDBController.questionsData.isEmpty
                 ? Center(
-                    child: Text(
-                        'Data cannot be displayed because it is your first login to the application and you do not have an internet connection. Please check your internet connection. '))
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Icon(Icons.wifi_off_rounded,color: Colors.red.withOpacity(0.07),size:Get.width),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal:18.0),
+                        child: Text(
+                            'Data cannot be displayed because it is your first login to the application and you do not have an internet connection. Please check your internet connection. ',textAlign: TextAlign.center),
+                      ),
+                    ],
+                  ),
+                )
                 : localDBController.isLoading.value
                     ? LoadingWidget()
                     : Column(
@@ -40,7 +50,7 @@ class HomeView extends GetView<HomeController> {
                         children: [
                             Text(apiController.listQuestions.items!.length
                                 .toString()),
-                            ListViewItems(ac: apiController),
+                            ListViewItems(ac: apiController, hc: controller),
                           ])
             : apiController.isLoading.value
                 ? LoadingWidget()
@@ -49,7 +59,7 @@ class HomeView extends GetView<HomeController> {
                     children: [
                         Text(apiController.listQuestions.items!.length
                             .toString()),
-                        ListViewItems(ac: apiController),
+                        ListViewItems(ac: apiController, hc: controller),
                       ]),
       ),
     );

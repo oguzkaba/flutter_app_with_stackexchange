@@ -15,5 +15,12 @@ const Color darkCardColor = Color(0xff2c2c2c);
 
 const Color circProgressColor = Color(0xFF0F6299);
 
+const Color goldBadgeColor = Color(0xD5FFA704);
+const Color silverBadgeColor = Color(0xFF868686);
+const Color bronzeBadgeColor = Color(0xFF997228);
+
+const Color profileContainerColor = Color(0xFFBEE0F7);
+
+
 //Image
 const String appBarIcon = "assets/appBar_icon.png";

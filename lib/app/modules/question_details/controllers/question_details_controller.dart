@@ -1,22 +1,12 @@
+import 'package:flutter_app_with_stackexchange/app/data/remote/controller/api_controller.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class QuestionDetailsController extends GetxController {
+  final ApiController apiController = Get.put(ApiController());
+
   @override
   void onInit() {
+    apiController.getQuestionById(Get.arguments);
     super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  launchURLApp(String questionUrl) async {
-    if (await canLaunch(questionUrl)) {
-      await launch(questionUrl, forceSafariVC: true, forceWebView: true);
-    } else {
-      throw 'Could not launch $questionUrl';
-    }
   }
 }
