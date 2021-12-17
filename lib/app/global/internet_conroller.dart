@@ -25,8 +25,7 @@ class NetController extends GetxController {
     ) async {
       if (result == ConnectivityResult.none) {
         _isOnline.value = false;
-        netErrorDialog();
-        // print('Change Dialog');
+        netErrorSnackBar();
       } else {
         await _updateConnectionStatus().then((isConnected) {
           _isOnline.value = isConnected!;
@@ -41,8 +40,7 @@ class NetController extends GetxController {
 
       if (status == ConnectivityResult.none) {
         _isOnline.value = false;
-        netErrorDialog();
-        // print('Init Dialog');
+        netErrorSnackBar();
       } else {
         _isOnline.value = true;
       }
@@ -61,43 +59,31 @@ class NetController extends GetxController {
       }
     } on SocketException catch (_) {
       isConnected = false;
-      netErrorDialog();
-      // print('Socket Dialog');
+      netErrorSnackBar();
     }
     return isConnected;
   }
 }
 
 int d = 0;
-Future netErrorDialog() async {
+netErrorSnackBar() {
   d += 1;
-  print('d= $d');
   if (NetController().isOnline == false && d == 1) {
-    await Get.defaultDialog(
-      content: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.wifi_off_rounded),
-              Icon(Icons.mobiledata_off),
-              Icon(Icons.airplanemode_active)
-            ],
-          ),
-          SizedBox(height: 10),
-          Text(
-              'You are not connected to the internet.\n Make sure Wi-Fi is or Mobile Data on, Airplane Mode is Off and try again.',
-              textAlign: TextAlign.center)
-        ],
-      ),
-      onWillPop: () async => true,
-      titleStyle: TextStyle(color: Colors.redAccent),
-      title: 'Connection Error',
+    Get.snackbar(
+      "WARNING..!",
+      'You are not connected to the internet.\n Make sure Wi-Fi is or Mobile Data on, Airplane Mode is Off and try again.',
+      icon: Icon(Icons.wifi_off_rounded, color: Colors.white),
+      snackPosition: SnackPosition.BOTTOM,
+      backgroundColor: Colors.redAccent,
+      borderRadius: 20,
+      margin: EdgeInsets.fromLTRB(30, 0, 30, 100),
+      colorText: Colors.white,
+      isDismissible: true,
+      dismissDirection: DismissDirection.down,
+      forwardAnimationCurve: Curves.fastOutSlowIn,
     );
     d = 0;
-  } else {
-    //print('patladı ');
-  }
+  } else {}
 
   print('dson= $d');
 }

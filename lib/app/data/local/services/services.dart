@@ -34,10 +34,13 @@ class LocalServices {
   ''');
   }
 
-  Future<int> insert(LocalQuestionsModel model) async {
+  Future<int?> insert(List<LocalQuestionsModel> model) async {
     Database? db = await instance.database;
-    var res = await db!.insert(table, model.toMap());
-    return res;
+
+    for (var i = 0; i < 30; i++) {
+      var item = LocalQuestionsModel(title: model[i].title);
+      db!.insert(table, item.toMap());
+    }
   }
 
   Future<List<Map<String, dynamic>>> queryAllRows() async {

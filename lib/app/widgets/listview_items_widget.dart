@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_with_stackexchange/app/data/local/controller/localdb_controller.dart';
-import 'package:flutter_app_with_stackexchange/app/internet_conroller.dart';
+import 'package:flutter_app_with_stackexchange/app/global/internet_conroller.dart';
 import 'package:flutter_app_with_stackexchange/app/widgets/loading_widget.dart';
 import 'package:get/get.dart';
 

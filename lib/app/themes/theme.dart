@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_with_stackexchange/app/constants.dart';
+import 'package:flutter_app_with_stackexchange/app/global/constants.dart';
 
 class Themes {
   static ThemeData lightTheme() {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_app_with_stackexchange/app/constants.dart';
+import 'package:flutter_app_with_stackexchange/app/global/constants.dart';
 import 'package:flutter_app_with_stackexchange/app/data/remote/controller/api_controller.dart';
 import 'package:flutter_app_with_stackexchange/app/data/remote/model/question.dart';
 import 'package:flutter_app_with_stackexchange/app/widgets/loading_widget.dart';

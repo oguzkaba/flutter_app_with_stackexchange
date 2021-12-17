@@ -31,7 +31,7 @@ class LocalDBController extends GetxController {
   Future<void> insertData() async {
     try {
       isLoading(true);
-      await LocalServices.instance.insert(LocalQuestionsModel(title: 'Deneme'));
+      await LocalServices.instance.insert(questionsData);
     } finally {
       isLoading(false);
     }
