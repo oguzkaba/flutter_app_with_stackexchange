@@ -10,7 +10,7 @@ class ApiController extends GetxController {
   QuestionByIdModel listQuestionById = QuestionByIdModel();
   final isLoading = true.obs;
   final isLoadingById = true.obs;
-  final connectionState=''.obs;
+  final firstLogin = false.obs;
 
   final NetController netContoller = Get.put(NetController());
   final LocalDBController localDBController = Get.put(LocalDBController());
@@ -18,16 +18,14 @@ class ApiController extends GetxController {
   @override
   void onInit() {
     if (netContoller.isOnline == false) {
-      connectionState.value="offline";
       if (localDBController.questionsData.isEmpty) {
-        connectionState.value="offline-nodb";
-      }else{
+        firstLogin.value = true;
+      } else {
+        firstLogin.value = false;
         localDBController.getData();
       }
     } else {
-      connectionState.value="online";
       getQuestions(1, 30);
-      localDBController.insertData();
     }
     //getQuestions(1, 30);
     super.onInit();

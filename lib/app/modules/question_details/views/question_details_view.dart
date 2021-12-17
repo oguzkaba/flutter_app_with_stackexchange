@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_app_with_stackexchange/app/constants.dart';
 import 'package:flutter_app_with_stackexchange/app/data/remote/controller/api_controller.dart';
 import 'package:flutter_app_with_stackexchange/app/data/remote/model/question.dart';
@@ -19,8 +20,7 @@ class QuestionDetailsView extends GetView<QuestionDetailsController> {
     return Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.black),
-          title:
-              Text('Question Details Page'),
+          title: Text('Question Details Page'),
         ),
         body: Obx(() => apiController.isLoadingById.value
             ? LoadingWidget()
@@ -69,18 +69,25 @@ class QuestionDetailsView extends GetView<QuestionDetailsController> {
 
   Row _questionInfo(List<Item> items) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      Text(
-          'Asked: ' +
-              timeago.format(DateTime.fromMillisecondsSinceEpoch(
-                  items.first.creationDate! * 1000)),
-          overflow: TextOverflow.ellipsis),
-      Text(
-          'Active: ' +
-              timeago.format(DateTime.fromMillisecondsSinceEpoch(
-                  items.first.lastActivityDate! * 1000)),
-          overflow: TextOverflow.ellipsis),
-      Text('Viewed: ' + items.first.viewCount.toString(),
-          overflow: TextOverflow.ellipsis),
+      Expanded(
+        flex: 3,
+        child: Text(
+            'Asked: ' +
+                timeago.format(DateTime.fromMillisecondsSinceEpoch(
+                    items.first.creationDate! * 1000)),
+            overflow: TextOverflow.ellipsis),
+      ),
+      Expanded(
+          flex: 3,
+          child: Text(
+              'Active: ' +
+                  timeago.format(DateTime.fromMillisecondsSinceEpoch(
+                      items.first.lastActivityDate! * 1000)),
+              overflow: TextOverflow.ellipsis)),
+      Expanded(
+          flex: 2,
+          child: Text('Viewed: ' + items.first.viewCount.toString(),
+              overflow: TextOverflow.ellipsis, textAlign: TextAlign.right)),
     ]);
   }
 
@@ -108,29 +115,40 @@ class QuestionDetailsView extends GetView<QuestionDetailsController> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Wrap(
-                    children: [Text(items.first.owner!.displayName.toString(),overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: lightTextColor,fontSize: 10))],
+                    children: [
+                      Text(items.first.owner!.displayName.toString(),
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(color: lightTextColor, fontSize: 10))
+                    ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(items.first.owner!.badgeCounts!.gold.toString(),
-                      style: TextStyle(color: goldBadgeColor,fontWeight: FontWeight.bold,fontSize: 16)), 
+                          style: TextStyle(
+                              color: goldBadgeColor,
+                              fontWeight: FontWeight.bold)),
                       Padding(
-                        padding: const EdgeInsets.only(left:8.0),
-                        child: Text(items.first.owner!.badgeCounts!.silver.toString(),
-                        style: TextStyle(color: silverBadgeColor,fontWeight: FontWeight.bold,fontSize: 14)),
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Text(
+                            items.first.owner!.badgeCounts!.silver.toString(),
+                            style: TextStyle(
+                                color: silverBadgeColor,
+                                fontWeight: FontWeight.bold)),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left:8.0),
-                        child: Text(items.first.owner!.badgeCounts!.bronze.toString(),
-                        style: TextStyle(color: bronzeBadgeColor,fontWeight: FontWeight.bold,fontSize: 12)),
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Text(
+                            items.first.owner!.badgeCounts!.bronze.toString(),
+                            style: TextStyle(
+                                color: bronzeBadgeColor,
+                                fontWeight: FontWeight.bold)),
                       ),
                     ],
                   ),
                 ],
-              )   
+              )
             ],
           ),
         ));

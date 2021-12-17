@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 
 import 'package:flutter_app_with_stackexchange/app/constants.dart';
 import 'package:flutter_app_with_stackexchange/app/data/remote/controller/api_controller.dart';
-import 'package:flutter_app_with_stackexchange/app/widgets/loading_widget.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -27,41 +26,38 @@ class HomeView extends GetView<HomeController> {
         title: Text('Questions Page'),
         centerTitle: true,
       ),
-      body: Obx(///buraya bak  <----------------------------------
-        () => netContoller.isOnline == false
-            ? localDBController.questionsData.isEmpty
-                ? Center(
+      body: Obx(() => !netContoller.isOnline
+          ? localDBController.questionsData.isEmpty
+              ? Center(
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      Icon(Icons.wifi_off_rounded,color: Colors.red.withOpacity(0.07),size:Get.width),
+                      Icon(Icons.wifi_off_rounded,
+                          color: Colors.red.withOpacity(0.07), size: Get.width),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal:18.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 18.0),
                         child: Text(
-                            'Data cannot be displayed because it is your first login to the application and you do not have an internet connection. Please check your internet connection. ',textAlign: TextAlign.center),
+                            'Data cannot be displayed because it is your first login to the application and you do not have an internet connection. Please check your internet connection. ',
+                            textAlign: TextAlign.center),
                       ),
                     ],
                   ),
                 )
-                : localDBController.isLoading.value
-                    ? LoadingWidget()
-                    : Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                            Text(apiController.listQuestions.items!.length
-                                .toString()),
-                            ListViewItems(ac: apiController, hc: controller),
-                          ])
-            : apiController.isLoading.value
-                ? LoadingWidget()
-                : Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                        Text(apiController.listQuestions.items!.length
-                            .toString()),
-                        ListViewItems(ac: apiController, hc: controller),
-                      ]),
-      ),
+              : ListView.builder(
+                  itemCount: localDBController.questionsData.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                        child: ListTile(
+                      isThreeLine: true,
+                      subtitle: Text(
+                          localDBController.questionsData[index].title
+                              .toString(),
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                    ));
+                  },
+                )
+          : ListViewItems(ac: apiController, nc: netContoller)),
     );
   }
 }

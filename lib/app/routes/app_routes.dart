@@ -4,11 +4,11 @@ part of 'app_pages.dart';
 abstract class Routes {
   Routes._();
 
-  static const HOME = _Paths.HOME;
-  static const QUESTION_DETAILS = _Paths.QUESTION_DETAILS;
+  static const home = _Paths.home;
+  static const questionDetails = _Paths.questionDetails;
 }
 
 abstract class _Paths {
-  static const HOME = '/home';
-  static const QUESTION_DETAILS = '/question-details';
+  static const home = '/home';
+  static const questionDetails = '/question-details';
 }

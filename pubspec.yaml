@@ -13,7 +13,6 @@ dependencies:
   timeago:
   flutter_markdown:
   html_unescape:
-  lazy_load_scrollview:
   connectivity_plus:
 
   flutter: 

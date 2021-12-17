@@ -1,6 +1,5 @@
 import 'package:flutter_app_with_stackexchange/app/data/local/model/questions.dart';
 import 'package:flutter_app_with_stackexchange/app/data/local/services/services.dart';
-import 'package:flutter_app_with_stackexchange/app/data/remote/controller/api_controller.dart';
 import 'package:get/get.dart';
 
 class LocalDBController extends GetxController {
@@ -19,10 +18,8 @@ class LocalDBController extends GetxController {
       isLoading(true);
       await LocalServices.instance.queryAllRows().then((value) {
         for (var element in value) {
-          questionsData.add(LocalQuestionsModel(
-            id: element['id'],
-            columnTitle: element['columnTitle']
-          ));
+          questionsData.add(
+              LocalQuestionsModel(id: element['id'], title: element['title']));
         }
       });
     } finally {
@@ -34,8 +31,7 @@ class LocalDBController extends GetxController {
   Future<void> insertData() async {
     try {
       isLoading(true);
-      await LocalServices.instance.insert(LocalQuestionsModel(
-          columnTitle: ApiController().listQuestions.items!.first.title));
+      await LocalServices.instance.insert(LocalQuestionsModel(title: 'Deneme'));
     } finally {
       isLoading(false);
     }

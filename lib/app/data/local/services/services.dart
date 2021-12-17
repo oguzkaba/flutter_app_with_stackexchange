@@ -4,9 +4,9 @@ import 'package:path/path.dart';
 
 class LocalServices {
   static Database? _database;
-  static final _databaseName = "questions.db";
+  static final _databaseName = "questions1.db";
   static final _databaseVersion = 1;
-  static final table = "questions";
+  static final table = "table1";
   static final columnId = 'id';
   static final columnTitle = 'title';
 

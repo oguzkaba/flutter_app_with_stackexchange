@@ -10,7 +10,7 @@ class RemoteServices {
 
   static Future<QuestionsModel> getQuestions(int page, int pagesize) async {
     final response = await http.get(Uri.parse(baseUrl +
-        '2.3/questions?page=$page&pagesize=$pagesize&order=desc&sort=activity&site=stackoverflow&key=$tokenValue'));
+        '2.3/questions?page=$page&pagesize=$pagesize&order=desc&sort=activity&site=stackoverflow&filter=!)*UL7u.lHDMsnmuvAQI&key=$tokenValue'));
     if (response.statusCode == 200) {
       return questionsModelFromJson(response.body);
     } else {
@@ -18,7 +18,7 @@ class RemoteServices {
     }
   }
 
-    static Future<QuestionByIdModel> getQuestionById(int id) async {
+  static Future<QuestionByIdModel> getQuestionById(int id) async {
     final response = await http.get(Uri.parse(baseUrl +
         '2.3/questions/$id?order=desc&sort=activity&site=stackoverflow&key=$tokenValue&filter=!8.X7X4_BZ(dr9S2vp8QK-fRs7l1onQKih1A*o'));
     if (response.statusCode == 200) {
