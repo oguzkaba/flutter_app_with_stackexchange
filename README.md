@@ -5,9 +5,9 @@
 
 ## Screen Shots
 
-<img src="assets\ss\ss1.png" width=33%>  <img src="assets\ss\ss2.png" width=33%>  <img src="assets\ss\ss3.png" width=33%>
+<img src="assets\ss\ss1.png" width=33%> <img src="assets\ss\ss2.png" width=33%> <img src="assets\ss\ss3.png" width=33%>
 
-<img src="assets\ss\ss4.png" width=33%>   <img src="assets\ss\ss5.png" width=33%>  <img src="assets\ss\ss6.png" width=33%>
+<img src="assets\ss\ss4.png" width=33%> <img src="assets\ss\ss5.png" width=33%> <img src="assets\ss\ss6.png" width=33%>
 
 ## Descriptions of screenshots in order
 
