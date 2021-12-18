@@ -1,15 +1,13 @@
-<p align="center"><img src="assets\appBar_icon.png" width=50></p>
-<center> Flutter StackExchange API </center>
+<p align="center"><img src="assets\appBar_icon.png" width=150></p>
 
-
-</br></br>
-# <img src="assets\appBar_icon.png" width=20> Flutter application with stackexchange api.
+# <p align="center">Flutter application with stackexchange api.</p>
+</br>
 
 ## Screen Shots
-</br>
-<img src="assets\ss\ss1.png" width=30%> <img src="assets\ss\ss2.png" width=30%> <img src="assets\ss\ss3.png" width=30%>
 
-<img src="assets\ss\ss4.png" width=30%> <img src="assets\ss\ss5.png" width=30%> <img src="assets\ss\ss6.png" width=30%>
+<img src="assets\ss\ss1.png" width=33%>  <img src="assets\ss\ss2.png" width=33%>  <img src="assets\ss\ss3.png" width=33%>
+
+<img src="assets\ss\ss4.png" width=33%>   <img src="assets\ss\ss5.png" width=33%>  <img src="assets\ss\ss6.png" width=33%>
 
 ## Descriptions of screenshots in order
 
@@ -47,6 +45,6 @@ For support and feedback, you can contact us via email. Thank you.
 > Email: [oguz-kaba@hotmail.com](mailto:oguz-kaba@hotmail.com)
 
 ## License
-[MIT](./LICENSE)
+[Apache](LICENSE)
 
 Coded by [oguzkaba](https://github.com/oguzkaba)
