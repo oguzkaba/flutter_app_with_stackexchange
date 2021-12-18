@@ -18,7 +18,7 @@ class QuestionDetailsView extends GetView<QuestionDetailsController> {
 
     return Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.black),
+          centerTitle: true,
           title: Text('Question Details Page'),
         ),
         body: Obx(() => apiController.isLoadingById.value

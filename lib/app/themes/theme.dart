@@ -6,9 +6,12 @@ class Themes {
     return ThemeData.light().copyWith(
       brightness: Brightness.light,
       appBarTheme: AppBarTheme(
-          actionsIconTheme: IconThemeData(color: darkTextColor),
+          iconTheme: IconThemeData(color: appbarTitleColor),
           backgroundColor: lightAppbarColor,
-          titleTextStyle: TextStyle(color: lightTextColor, fontSize: 16)),
+          titleTextStyle: TextStyle(
+              color: appbarTitleColor,
+              fontSize: 16,
+              fontWeight: FontWeight.bold)),
       cardColor: lightCardColor,
     );
   }

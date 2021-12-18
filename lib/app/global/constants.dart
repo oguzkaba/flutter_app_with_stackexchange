@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 const Color lightAppbarColor = Color(0xffffffff);
 const Color darkAppbarColor = Color(0xff2c2c2c);
 
+const Color appbarTitleColor = Color(0xFF0F6299);
+
 const Color lightTextColor = Color(0xff2c2c2c);
 const Color darkTextColor = Color(0xffffffff);
 
@@ -14,6 +16,8 @@ const Color lightCardColor = Color(0xffffffff);
 const Color darkCardColor = Color(0xff2c2c2c);
 
 const Color circProgressColor = Color(0xFF0F6299);
+
+const Color questionIndexContainer = Color(0xFFCFCFCF);
 
 const Color goldBadgeColor = Color(0xD5FFA704);
 const Color silverBadgeColor = Color(0xFF868686);

@@ -7,13 +7,21 @@ environment:
 
 dependencies: 
   cupertino_icons: ^1.0.2
+  
+  #State Management and utils
   get:
+
+  #Local Storage
   sqflite:
+  
+  #Network 
   http:
-  timeago:
+  connectivity_plus:
   flutter_markdown:
   html_unescape:
-  connectivity_plus:
+
+  #Time
+  timeago:
 
   flutter: 
     sdk: flutter

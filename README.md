@@ -1,16 +1,52 @@
-# flutter_app_with_stackexchange
+<p align="center"><img src="assets\appBar_icon.png" width=50></p>
+<center> Flutter StackExchange API </center>
 
-A new Flutter project.
 
-## Getting Started
+</br></br>
+# <img src="assets\appBar_icon.png" width=20> Flutter application with stackexchange api.
 
-This project is a starting point for a Flutter application.
+## Screen Shots
+</br>
+<img src="assets\ss\ss1.png" width=30%> <img src="assets\ss\ss2.png" width=30%> <img src="assets\ss\ss3.png" width=30%>
 
-A few resources to get you started if this is your first Flutter project:
+<img src="assets\ss\ss4.png" width=30%> <img src="assets\ss\ss5.png" width=30%> <img src="assets\ss\ss6.png" width=30%>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Descriptions of screenshots in order
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### 1 -Image of internet status
+</br>
+
+#### 2 -No internet access, this screen is shown because the user is logged into the app for the first time and there is no data in the local database
+</br>
+
+#### 3 -This screen has internet access and the first data received via API is shown.
+</br>
+
+#### 4 -Some more data is retrieved via API when the user finishes seeing the initial data retrieved (lazy loading and pagination)
+</br>
+
+#### 5 -There is constant internet access control throughout the application, and when there is no access, warning and local data (if there is previously recorded data) are displayed.
+</br>
+
+#### 6 -Screen showing details of the question selected from the first screen
+</br>
+
+## Dependencies
+- get 
+- sqflite
+- http
+- connectivity_plus
+- flutter_markdown
+- html_unescape
+- timeago
+- API-stackExchange
+
+
+## Support And Feedback
+For support and feedback, you can contact us via email. Thank you.
+> Email: [oguz-kaba@hotmail.com](mailto:oguz-kaba@hotmail.com)
+
+## License
+[MIT](./LICENSE)
+
+Coded by [oguzkaba](https://github.com/oguzkaba)

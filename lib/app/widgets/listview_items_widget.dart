@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_with_stackexchange/app/data/local/controller/localdb_controller.dart';
 import 'package:flutter_app_with_stackexchange/app/global/internet_conroller.dart';
+import 'package:flutter_app_with_stackexchange/app/widgets/card_widget.dart';
 import 'package:flutter_app_with_stackexchange/app/widgets/loading_widget.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter_app_with_stackexchange/app/data/remote/controller/api_controller.dart';
-import 'package:flutter_app_with_stackexchange/app/routes/app_pages.dart';
 
 class ListViewItems extends StatefulWidget {
   final ApiController ac;
   final NetController nc;
-  const ListViewItems({Key? key, required this.ac, required this.nc})
+  final LocalDBController lc;
+  const ListViewItems(
+      {Key? key, required this.ac, required this.nc, required this.lc})
       : super(key: key);
 
   @override
@@ -85,6 +87,9 @@ class _ListViewItemsState extends State<ListViewItems> {
       setState(() {
         _isLoadMoreRunning = false;
       });
+
+      //more data to insert sqlite
+      await widget.lc.insertData();
     }
   }
 
@@ -123,24 +128,20 @@ class _ListViewItemsState extends State<ListViewItems> {
                         if (_items.length == index) {
                           return LoadingWidget();
                         }
-                        return Card(
-                            child: ListTile(
-                          isThreeLine: true,
-                          onTap: () async => widget.nc.isOnline
-                              ? await Get.toNamed(Routes.questionDetails,
-                                  arguments: _items[index].questionId)
-                              : null,
-                          subtitle: Text(_items[index].title.toString(),
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                        ));
+                        return ItemCardWidget(
+                          index:index,
+                          nc: widget.nc,
+                          lc: widget.lc,
+                          items: _items,
+                          ac: widget.ac,
+                        );
                       }),
                 ),
               ),
               // when the _loadMore function is running
               if (_isLoadMoreRunning == true)
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 40),
+                  padding: const EdgeInsets.only(top: 10, bottom: 30),
                   child: Center(
                     child: LoadingWidget(),
                   ),
